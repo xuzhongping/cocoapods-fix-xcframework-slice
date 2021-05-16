@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['1021057927@qq.com']
   spec.description   = %q{A short description of cocoapods-fix-xcframework-slice.}
   spec.summary       = %q{A longer description of cocoapods-fix-xcframework-slice.}
-  spec.homepage      = 'https://github.com/EXAMPLE/cocoapods-fix-xcframework-slice'
+  spec.homepage      = 'https://github.com/xuzhongping/cocoapods-fix-xcframework-slice'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)
@@ -20,4 +20,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'bundler', '~> 1.3'
   spec.add_development_dependency 'rake'
+  spec.add_dependency 'cocoapods', '1.9.3'
 end
