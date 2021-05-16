@@ -8,4 +8,4 @@ A description of cocoapods-fix-xcframework-slice.
 
 ## Usage
 
-    $ pod spec slice POD_NAME
+    $ plugin 'cocoapods-fix-xcframework-slice'
