@@ -98,9 +98,10 @@ module Pod
             local target_arch="$ARCHS"
 
             # Replace spaces in compound architectures with _ to match slice format
-            target_arch=${target_arch//\ /_}
+            # nakahira: No replace
+            # target_arch=${target_arch//\ /_}
 
-            local target_variant="physical"
+            local target_variant="iphoneos"
             if [[ "$PLATFORM_NAME" == *"simulator" ]]; then
               target_variant="simulator"
             fi
@@ -110,9 +111,16 @@ module Pod
             for i in ${!paths[@]}; do
               local info="${paths[$i]%%/*}"
               if [[ $info != *"simulator" ]] && [[ $info != *"maccatalyst" ]]; then
-                info="${info}-physical"
+                info="${info}-iphoneos"
               fi
-              if [[ $info == *"$target_arch"* ]] && [[ $info == *"$target_variant" ]]; then
+              archs_matched='true'
+              for arch in $target_arch; do
+                if [[ $info != *"$arch"* ]]; then
+                  archs_matched='false'
+                  break;
+                fi
+              done
+              if [[ $archs_matched == 'true' ]] && [[ $info == *"$target_variant" ]]; then
                 # Found a matching slice
                 echo "Selected xcframework slice ${paths[$i]}"
                 target_path=${paths[$i]}
