@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cocoapods-fix-xcframework-slice (0.0.1)
+    cocoapods-fix-xcframework-slice (0.1.0)
       cocoapods (= 1.9.3)
 
 GEM
